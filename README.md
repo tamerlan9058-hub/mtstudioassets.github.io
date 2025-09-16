@@ -43,7 +43,6 @@ Whether you need a realistic Earth-like planet, a glowing alien world, or a prot
 ## 📬 Contact
 - Publisher: **MT STUDIO ASSETS**  
 - Email: [your@email.com](mailto:your@email.com)  
-- Website: [https://yourusername.github.io](https://yourusername.github.io)  
 
 ---
 
