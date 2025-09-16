@@ -40,11 +40,20 @@ Whether you need a realistic Earth-like planet, a glowing alien world, or a prot
 
 ---
 
+## 📸 Screenshots
+
+![Planet Example 1](./screenshots/planet1.png)  
+![Planet Example 2](./screenshots/planet2.png)  
+![Planet Example 3](./screenshots/planet3.png)  
+
+---
+
 ## 📬 Contact
 - Publisher: **MT STUDIO ASSETS**  
-- Email: [your@email.com](mailto:your@email.com)  
+- Email: [tamerlan9058@gmail.com](mailto:tamerlan9058@gmail.com)  
 
 ---
 
 ## ⚠️ AI Disclosure
 Some textures and partial script assistance were created with the aid of AI tools. All content has been reviewed, tested, and integrated manually.
+
