@@ -478,14 +478,6 @@ void UpdateProgress(int connectedPieces, int totalPieces)
 
 ---
 
-## 📸 Screenshots
-
-![Puzzle Example 1](./screenshots/puzzle1.png)
-![Puzzle Example 2](./screenshots/puzzle2.png)
-![Puzzle UI](./screenshots/puzzle3.png)
-
----
-
 ## 📬 Contact
 - Publisher: **MT STUDIO ASSETS**
 - Email: [tamerlan9058@gmail.com](mailto:tamerlan9058@gmail.com)
