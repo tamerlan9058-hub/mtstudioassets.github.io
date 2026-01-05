@@ -510,3 +510,134 @@ Some textures and partial script assistance were created with the aid of AI tool
 - Test snap distance on your target devices
 - Consider adding a "preview" mode for difficult puzzles
 - Save progress automatically to prevent user frustration
+
+<h1 align="center">🧱 Voxel Sandbox System</h1>
+<h2 align="center">Minecraft-Inspired Water Behavior</h2>
+
+
+## 🧱 Voxel Sandbox System
+
+**Voxel Sandbox System** is a ready-to-use Unity toolkit for creating fully interactive voxel-based worlds in sandbox and survival-style games.  
+It allows you to quickly launch a project featuring procedural worlds, block building and destruction, and dynamic water interaction — without developing core systems from scratch.
+
+---
+
+## ✨ Key Features
+
+- 🌍 **Procedural voxel worlds**  
+  Automatic terrain generation with mountains, plains, water bodies, and vegetation
+
+- 🧱 **Classic sandbox building**  
+  Real-time block placement and destruction
+
+- 💧 **Dynamic water behavior**  
+  Water naturally fills space, flows, and reacts to changes in the world
+
+- 🎮 **Familiar controls**  
+  Intuitive controls inspired by popular voxel games
+
+- 🎒 **Inventory & hotbar system**  
+  Quick access to blocks and items
+
+- 🎨 **Multi-face block visuals**  
+  Support for different textures on each side of a block
+
+- ⚡ **Optimized performance**  
+  Suitable for large worlds and long play sessions
+
+- 🧩 **Modular design**  
+  Easy to extend and adapt to your game ideas
+
+---
+
+## 🎮 Suitable For
+
+- Sandbox and survival games  
+- Minecraft-like voxel projects  
+- Gameplay prototyping  
+- Educational projects  
+- Building and destruction simulators  
+- Indie games with procedural worlds  
+
+---
+
+## 🚀 What You Can Create
+
+- Explorable voxel worlds  
+- Resource gathering and building games  
+- Interactive environments  
+- Creativity-focused gameplay experiences  
+- A foundation for survival mechanics  
+  *(crafting, biomes, world progression)*
+
+---
+
+## 📦 Package Contents
+
+- Fully functional sandbox system  
+- Procedural world generator  
+- Block interaction system  
+- Inventory and hotbar UI  
+- Water and environment interaction support  
+- Customizable visual materials  
+- Demo scene for quick start  
+- Setup and usage documentation  
+
+---
+
+## ⚙️ Customization Options
+
+- World size and complexity  
+- Object and environment density  
+- Water behavior settings  
+- Available block sets  
+- Block visual style  
+- Interaction and difficulty balance  
+
+All key parameters can be adjusted without modifying the source code.
+
+---
+
+## 🖥️ Platform Support
+
+- Windows  
+- macOS  
+- Linux  
+- Android  
+- iOS  
+- WebGL  
+
+Suitable for both desktop and mobile projects.
+
+---
+
+## 🛠️ Technical Requirements
+
+- Unity 2022.3 LTS or newer  
+- Built-in Render Pipeline  
+- .NET 4.x  
+- No third-party packages required  
+
+---
+
+## 🔄 Version History
+
+- **v1.0** — Initial release  
+  - Core sandbox mechanics  
+  - Procedural world generation  
+  - Voxel building system  
+  - Interactive water behavior  
+
+---
+
+## ⚠️ AI Disclosure
+
+Some auxiliary elements were created with the assistance of AI tools.  
+All content has been reviewed, tested, and manually integrated.
+
+---
+
+## 📬 Contact
+
+**Publisher:** MT STUDIO ASSETS  
+**Email:** tamerlan9058@gmail.com
