@@ -132,6 +132,65 @@ Whether you need a realistic Earth-like planet, a glowing alien world, or a prot
 
 ---
 
+### 🏝️ ProceduralScape (TerrainForge)
+
+**ProceduralScape** is a complete Unity toolkit (codename **TerrainForge**) for building stylized procedural islands and terrains — combining heightmap-driven terrain generation, island masking, vegetation systems (trees & grass), a Gerstner-wave water plane, and a full day/night sky in one cohesive package.
+
+#### ✨ Key Features
+
+- 🗺️ **Procedural terrain generation** – multi-chunk heightmap terrain with customizable seed, chunk count, and auto-update in editor
+- 🏝️ **Island masking** – `Organic` (noise-based) and `Continent` (jagged coastline) island shapes with adjustable size and coastal falloff
+- 🌊 **Realistic Gerstner-wave water plane** – configurable resolution, amplitude, wavelength, with auto-resolution and a dedicated `RealisticWater` shader
+- 🌫️ **Underwater effect** – screen-space underwater overlay panel triggered by camera depth, with hysteresis to prevent flicker
+- 🌲 **Tree system** – `TreeSpawner` + `TreeMeshBuilder` with three built-in shape templates (Deciduous, Pine, Bush), procedural billboard sprite generation, and `TreeLODManager` for distance-based mesh → billboard switching and culling
+- 🌿 **Grass system** – cell-based `GrassSpawner` (4×4 grid per chunk) with distance culling via renderer toggling, billboard textures, or custom prefabs
+- ☀️ **Procedural sky & sun** – `ProceduralSky` (zenith/horizon/sunset colors, fog control), `SunController` (manual or automatic day/night cycle), and `SunDisc` (camera-facing sun quad with occlusion)
+- 🎨 **Layered terrain shading** – `TerrainSplat` shader with up to 8 height/slope-blended texture layers, or vertex-color fallback when no textures are assigned
+- 🧗 **Slope-based rock coloring & domain warping** – `RealisticSettings` add natural-looking cliffs and organic noise distortion
+- 🚶 **First-person player controller** – WASD movement, mouse look, sprint, jump, cursor lock
+- ⚙️ **ScriptableObject profiles** – `TerrainProfile`, `TreeProfile`, `GrassProfile` for fully data-driven, reusable configurations
+- 🧩 **Shader build-safety** – `TerrainShaderIncluder` component prevents Unity from stripping procedural shaders from builds
+
+#### 🎮 Suitable For
+
+- Stylized exploration and survival games
+- Island/archipelago-based open worlds
+- Sailing, fishing, and coastal simulation games
+- Low-poly adventure and prototyping projects
+- Educational or showcase scenes for procedural generation techniques
+
+#### 📂 Package Contents
+
+- C# scripts (namespace `TerrainForge`): terrain, island mask, noise, water, sky, sun, trees, grass, mesh builder, material builder, player controller
+- Custom shaders: `TerrainSplat`, `VertexColor`, `RealisticWater`, `Grass`, `TreeLit`, `TreeBillboard`, `ProceduralSky`, `SunDisc`
+- Editor scripts: custom inspectors for terrain, water, tree spawner, and first-person player
+- Tree textures (diffuse, normal/specular, translucency/gloss, shadow, bush, grass, tree sprites)
+- ScriptableObject profile assets folder (`Profiles`)
+- Demo scene (`DEMO.unity`)
+- PDF documentation (`TerrainForge_Documentation.pdf`)
+
+#### 🚀 Quick Start
+
+1. Import the package into your Unity project.
+2. Open the `DEMO.unity` scene to see a fully configured example.
+3. Create or assign `TerrainProfile`, `TreeProfile`, and `GrassProfile` assets via `ProceduralTerrain/...` in the Create menu.
+4. Add a `ProceduralTerrainGenerator` to an empty GameObject, assign your profile, and set seed/chunk count.
+5. Configure island mode (`Organic`/`Continent`) if you want a bounded landmass instead of infinite terrain.
+6. Add `TerrainShaderIncluder` to a scene object and drag in all procedural shaders to ensure they aren't stripped from builds.
+7. Tune the `WaterPlane`, `ProceduralSky`, and `SunController` components to match your art direction.
+
+#### 🔧 Important Notes & Settings
+
+**Build-in shaders must be referenced**: Without `TerrainShaderIncluder` in the scene, Unity may strip unused shaders during build, causing pink/white materials.
+
+**D3D11 compatibility**: The `TerrainSplat` shader uses fixed `_H0.._H7` / `_B0.._B7` properties instead of arrays, since dynamic indexing isn't supported on all platforms.
+
+**LOD & culling**: `TreeLODManager` switches between 3D mesh and billboard based on distance to the nearest tree-cluster bounds (important for large chunks), while `GrassSpawner` uses simple renderer-enable toggling per cell for distance culling.
+
+**Editor-time generation**: `ProceduralTerrainGenerator` and `ProceduralSky` support `[ExecuteAlways]`/editor auto-update, so terrain and sky settings can be previewed without entering Play mode.
+
+---
+
 ### 🎬 Cinematic Racing Replay System
 
 **Cinematic Racing Replay System** is a professional Unity toolkit for recording and replaying racing gameplay with cinematic camera angles, smooth interpolation, and customizable UI effects to create broadcast-quality race replays.
@@ -816,6 +875,6 @@ We're here to help! Don't hesitate to reach out.
 
 **Made with ❤️ by MT STUDIO ASSETS**
 
-*Last Updated: February 2026*
+*Last Updated: June 2026*
 
 </div>
