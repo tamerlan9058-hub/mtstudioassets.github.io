@@ -18,6 +18,21 @@
 
 ---
 
+## 📦 Asset Catalog
+
+| # | Asset | Category |
+|:-:|:------|:---------|
+| 1 | 🌍 [Planet Generator Pro](#-planet-generator-pro) | Terrain / Space |
+| 2 | 🌊 [Procedural Infinite Ocean with Terrain](#-procedural-infinite-ocean-with-terrain) | Terrain / Ocean |
+| 3 | 🏝️ [ProceduralScape (TerrainForge)](#️-proceduralscape-terrainforge) | Terrain / Islands |
+| 4 | 🎬 [Cinematic Racing Replay System](#-cinematic-racing-replay-system) | Gameplay / Tools |
+| 5 | 🧩 [Procedural Jigsaw Puzzle Generator](#-procedural-jigsaw-puzzle-generator) | Gameplay / Puzzle |
+| 6 | 🕹️ [PuzzleCraft Pro](#️-puzzlecraft-pro--complete-jigsaw-puzzle-game) | Gameplay / Puzzle |
+| 7 | 🧱 [Voxel Sandbox System](#-voxel-sandbox-system) | Gameplay / Sandbox |
+| 8 | 📱 [Voxel Sandbox System — Mobile Edition](#-voxel-sandbox-system--mobile-edition) | Gameplay / Mobile |
+
+---
+
 ## 🌟 About
 
 **MT STUDIO ASSETS** is a collection of professional, production-ready Unity toolkits designed to accelerate game development. Each asset is built with **modularity**, **performance**, and **ease of integration** in mind.
@@ -479,6 +494,99 @@ void UpdateProgress(int connectedPieces, int totalPieces)
 - Test snap distance on your target devices
 - Consider adding a "preview" mode for difficult puzzles
 - Save progress automatically to prevent user frustration
+
+---
+
+### 🕹️ PuzzleCraft Pro — Complete Jigsaw Puzzle Game
+
+**PuzzleCraft Pro** is a fully featured jigsaw puzzle game template for Unity — not just a generator, but a complete, shippable game experience with menus, save system, gallery import, and polished UI, ready for mobile and desktop release.
+
+#### ✨ Key Features
+
+- 🧩 **Complete Game Template** – Full game loop with main menu, puzzle selection, gameplay, and completion screens — ship it as-is or customize to fit your brand
+- 📷 **Generate Puzzles from Photos** – Create puzzles from any image, including photos imported at runtime from the device gallery
+- 🖼️ **Gallery Import** – Native device gallery access on Android and iOS for player-sourced puzzle images
+- 💾 **Save & Continue** – Automatic progress saving; players can close the app and resume exactly where they left off
+- 🎯 **Multiple Difficulty Levels** – Configurable piece counts for easy, medium, hard, and expert sessions
+- 📱 **Mobile & Desktop Ready** – Optimized for Android, iOS, and PC; touch and mouse input handled transparently
+- 🔍 **Zoom & Pan Controls** – Smooth pinch-to-zoom and pan for comfortable play on any screen size
+- 💡 **Hint System** – Semi-transparent reference image overlay to help players when stuck
+- 🎨 **Clean UI Included** – Polished, ready-to-use interface — no custom UI work required
+- ⚡ **Lightweight Package** – Minimal footprint and fast integration into new or existing projects
+
+#### 🎮 Suitable For
+
+- Casual mobile puzzle games
+- Photo-based puzzle apps
+- Relaxation and mindfulness games
+- Educational apps for all ages
+- Gallery and art appreciation experiences
+- Developers who want a complete, ready-to-ship puzzle game
+
+#### 📂 Package Contents
+
+- Fully commented C# scripts
+- Complete game scene hierarchy (menu, game, results)
+- Gallery import system for Android & iOS
+- Save/load serialization system
+- Difficulty configuration assets
+- Zoom & pan canvas controller
+- Hint overlay system
+- Polished UI prefabs and layouts
+- Demo scene with sample puzzles
+- Documentation & integration guide
+
+#### 🚀 Quick Start
+
+1. Import the package into your Unity project
+2. Open the included demo scene to see a complete working example
+3. Assign your app icon and branding assets
+4. Configure difficulty presets in the inspector
+5. Build and deploy — the game is ready to ship
+
+#### 🔧 Key Components
+
+**Game Flow**
+- Main menu with puzzle gallery browser
+- In-game UI: piece counter, timer, difficulty badge
+- Completion screen with time, stars, and share prompt
+- Persistent player progress across sessions
+
+**Gallery Import System**
+- Native Android and iOS gallery picker integration
+- Runtime texture loading and puzzle generation from user photos
+- Aspect ratio handling and texture compression
+
+**Save System**
+- Automatic slot-based saving of piece positions and group state
+- Resume any puzzle from the exact state it was left in
+- Multiple concurrent save slots supported
+
+**Zoom & Pan**
+- Smooth pinch-to-zoom with configurable min/max scale
+- Inertia-based panning for natural feel
+- Double-tap to fit puzzle in view
+
+#### ⚙️ Difficulty Presets
+
+| Level | Pieces | Snap Distance | Rotation |
+|:-----:|:------:|:-------------:|:--------:|
+| Easy | 12–24 | Generous | Off |
+| Medium | 48–100 | Standard | Off |
+| Hard | 150–300 | Tight | Optional |
+| Expert | 300+ | Precise | On |
+
+#### 📋 Technical Requirements
+
+- Unity 2022.3 LTS or higher
+- Built-in Render Pipeline (URP/HDRP adaptable)
+- .NET 4.x or higher
+- Android API 21+ / iOS 12+
+- Supports Windows, macOS, Linux, iOS, Android, WebGL
+
+#### 🔄 Version History
+
+- **v1.0** – Initial release: complete game template, gallery import, save system, zoom & pan, hint system, difficulty levels
 
 ---
 
