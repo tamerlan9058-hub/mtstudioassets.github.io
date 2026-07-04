@@ -25,11 +25,12 @@
 | 1 | 🌍 [Planet Generator Pro](#-planet-generator-pro) | Terrain / Space |
 | 2 | 🌊 [Procedural Infinite Ocean with Terrain](#-procedural-infinite-ocean-with-terrain) | Terrain / Ocean |
 | 3 | 🏝️ [ProceduralScape (TerrainForge)](#️-proceduralscape-terrainforge) | Terrain / Islands |
-| 4 | 🎬 [Cinematic Racing Replay System](#-cinematic-racing-replay-system) | Gameplay / Tools |
-| 5 | 🧩 [Procedural Jigsaw Puzzle Generator](#-procedural-jigsaw-puzzle-generator) | Gameplay / Puzzle |
-| 6 | 🕹️ [PuzzleCraft Pro](#️-puzzlecraft-pro--complete-jigsaw-puzzle-game) | Gameplay / Puzzle |
-| 7 | 🧱 [Voxel Sandbox System](#-voxel-sandbox-system) | Gameplay / Sandbox |
-| 8 | 📱 [Voxel Sandbox System — Mobile Edition](#-voxel-sandbox-system--mobile-edition) | Gameplay / Mobile |
+| 4 | 🧟 [Island Survival](#-island-survival) | Gameplay / Survival |
+| 5 | 🎬 [Cinematic Racing Replay System](#-cinematic-racing-replay-system) | Gameplay / Tools |
+| 6 | 🧩 [Procedural Jigsaw Puzzle Generator](#-procedural-jigsaw-puzzle-generator) | Gameplay / Puzzle |
+| 7 | 🕹️ [PuzzleCraft Pro](#️-puzzlecraft-pro--complete-jigsaw-puzzle-game) | Gameplay / Puzzle |
+| 8 | 🧱 [Voxel Sandbox System](#-voxel-sandbox-system) | Gameplay / Sandbox |
+| 9 | 📱 [Voxel Sandbox System — Mobile Edition](#-voxel-sandbox-system--mobile-edition) | Gameplay / Mobile |
 
 ---
 
@@ -203,6 +204,72 @@ Whether you need a realistic Earth-like planet, a glowing alien world, or a prot
 **LOD & culling**: `TreeLODManager` switches between 3D mesh and billboard based on distance to the nearest tree-cluster bounds (important for large chunks), while `GrassSpawner` uses simple renderer-enable toggling per cell for distance culling.
 
 **Editor-time generation**: `ProceduralTerrainGenerator` and `ProceduralSky` support `[ExecuteAlways]`/editor auto-update, so terrain and sky settings can be previewed without entering Play mode.
+
+---
+
+### 🧟 Island Survival
+
+**Island Survival** is a complete, ready-to-extend survival game template for Unity — a working vertical slice covering roughly 70 scripts across ten interconnected systems: procedural island generation, first-person exploration, resource gathering, crafting, Valheim-style building, zombie AI, a full day/night cycle, and save/load, all wrapped in a polished menu flow.
+
+#### ✨ Key Features
+
+- 🏝️ **Procedural island generation** – domain-warped fractal noise, radial island mask, shoreline smoothing, and ridge-noise land relief driven from a single seed
+- 🌊 **Pipeline-agnostic water & underwater effect** – double-sided water plane and a UI-panel underwater indicator that work identically under Built-in and URP, with materials generated automatically at runtime (no custom shaders)
+- 🚶 **First-person controller** – walking, running, jumping, swimming, and ladder climbing, built on the New Input System
+- ❤️ **Health, stamina & drowning systems** – event-driven HUD bindings with no extra wiring required
+- 🎒 **Inventory, hotbar & crafting** – ScriptableObject-driven items and recipes with a single change-event powering all UI
+- 🏗️ **Grid/snap-based building system** – foundations, walls, doorways, floors and ladders with durability and destructible pieces
+- 🌲 **Resource gathering & respawning** – trees, rocks and ore nodes with object-pooling and a spawn-point registry
+- 🧟 **Custom A\* zombie AI** – a dedicated pathfinding grid (not NavMesh, so it supports runtime-generated terrain), a Wander/Chase/Attack/Dead state machine, anti-stuck logic, ledge/rock jumping, and day/night-aware spawning
+- ☀️ **Fully procedural day/night cycle** – dynamic lighting, fog, and a six-color skybox gradient with no baked textures
+- 💾 **JSON save/load system** – per-slot saves covering player, inventory, world, buildings, resources and zombies
+- 🖥️ **Complete menu framework** – Main Menu, Create Game (with live seed preview), Load Game, Settings, and an in-game Pause Menu
+
+#### 🎮 Suitable For
+
+- Survival and crafting games
+- Zombie/horde survival experiences
+- Open-world exploration prototypes
+- Building/base-defense games
+- Developers who want a fully working vertical slice to fork and reskin rather than start from scratch
+
+#### 📂 Package Contents
+
+- C# scripts organized into 10 subfolders by system (AI/Zombies, Building, Core, Inventory & Crafting, Items & Tools, Player, Resources & Gathering, Save System, UI Menus, World & Environment)
+- Prefabs: player tools, weapons, resource props, the zombie, and build pieces (16 prefabs)
+- ScriptableObject data assets: Items, Recipes, BuildPieces, IslandSettings
+- Demo scene (`DEMO.unity`) and Main Menu scene (`New Scene.unity`)
+- Full documentation & script reference, including a large numbered "Customization Recipes" section covering zombie tuning, custom enemy AI integration, island-shape tuning, grass, biomes, save-system extension, and performance
+
+#### 🚀 Quick Start
+
+1. Import the package into your Unity project.
+2. Make sure the Input System package (`com.unity.inputsystem`) is installed.
+3. Open `Island Survival > Scenes > DEMO.unity` and press Play to spawn on the generated island.
+4. Open `New Scene.unity` to see the Main Menu → Create/Load Game → Settings flow.
+5. Wait for night to fall (or shorten `dayDurationSeconds` on `DayNightCycle` for testing) to see zombies spawn.
+
+#### 🔧 Important Notes & Settings
+
+**Native Built-in / URP support, no custom shaders**: the water plane, underwater indicator, and every runtime-generated material are created at runtime via `PipelineUtils`, which detects the active pipeline automatically — there's no Shaders folder and no per-pipeline conversion work needed.
+
+**Pathfinding is custom A\*, not NavMesh**: `AStarPathfinder` builds its own walkable grid from terrain height, slope and obstacle checks, since the island is generated at runtime and NavMesh baking isn't a fit for that workflow.
+
+**Decoupled enemy integration**: weapons dispatch damage by tag (`zombieTag`) and a generic `ZombieHealth.TakeDamage` entry point, so custom enemy AI can be dropped in alongside or instead of the included zombies without touching the core systems.
+
+**Difficulty is captured but not yet wired in**: the Create Game screen exposes a `GameDifficulty` enum, but scaling zombie stats from it is a documented, opt-in step rather than a default behavior.
+
+#### 📋 Technical Requirements
+
+- Unity 2022.3 LTS or newer
+- Native Built-in Render Pipeline and URP support (same package, no per-pipeline setup)
+- New Input System (`com.unity.inputsystem`)
+- Works with both Mono and IL2CPP
+- PC / desktop platforms (Windows, macOS); not optimized for mobile or console out of the box
+
+#### 🔄 Version History
+
+- **v1.2** – Skybox/material render-pipeline compatibility fixes, runtime water material generation via `PipelineUtils`
 
 ---
 
@@ -983,6 +1050,6 @@ We're here to help! Don't hesitate to reach out.
 
 **Made with ❤️ by MT STUDIO ASSETS**
 
-*Last Updated: June 2026*
+*Last Updated: July 2026*
 
 </div>
