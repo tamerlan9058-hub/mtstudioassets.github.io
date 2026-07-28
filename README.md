@@ -31,6 +31,7 @@
 | 7 | 🕹️ [PuzzleCraft Pro](#️-puzzlecraft-pro--complete-jigsaw-puzzle-game) | Gameplay / Puzzle |
 | 8 | 🧱 [Voxel Sandbox System](#-voxel-sandbox-system) | Gameplay / Sandbox |
 | 9 | 📱 [Voxel Sandbox System — Mobile Edition](#-voxel-sandbox-system--mobile-edition) | Gameplay / Mobile |
+| 10 | 🏝️ [Island Survival — Multiplayer FPS Template](#️-island-survival--multiplayer-fps-template) | Gameplay / Multiplayer |
 
 ---
 
@@ -211,6 +212,8 @@ Whether you need a realistic Earth-like planet, a glowing alien world, or a prot
 
 **Island Survival** is a complete, ready-to-extend survival game template for Unity — a working vertical slice covering roughly 70 scripts across ten interconnected systems: procedural island generation, first-person exploration, resource gathering, crafting, Valheim-style building, zombie AI, a full day/night cycle, and save/load, all wrapped in a polished menu flow.
 
+> 💡 **Looking for co-op?** See [Island Survival — Multiplayer FPS Template](#️-island-survival--multiplayer-fps-template) — a separate, multiplayer-first package built on Mirror for Unity 6 / URP.
+
 #### ✨ Key Features
 
 - 🏝️ **Procedural island generation** – domain-warped fractal noise, radial island mask, shoreline smoothing, and ridge-noise land relief driven from a single seed
@@ -346,6 +349,7 @@ Whether you're building an arcade racer, realistic simulator, or competitive onl
 #### 💡 Usage Examples
 
 **Basic Recording**
+
 ```csharp
 // Start recording
 ReplayManager.Instance.StartRecording();
@@ -355,6 +359,7 @@ ReplayManager.Instance.StopRecording();
 ```
 
 **Playback Control**
+
 ```csharp
 // Play recorded replay
 ReplayManager.Instance.PlayReplay();
@@ -485,6 +490,7 @@ Whether you're creating a casual puzzle game, educational tool, or photo-based e
 #### 💡 Usage Examples
 
 **Generate Basic Puzzle**
+
 ```csharp
 // Create puzzle from texture
 PuzzleGenerator generator = GetComponent<PuzzleGenerator>();
@@ -494,6 +500,7 @@ generator.GeneratePuzzle();
 ```
 
 **Custom Snap Settings**
+
 ```csharp
 // Configure snap behavior
 SnapController snapController = GetComponent<SnapController>();
@@ -503,6 +510,7 @@ snapController.playSnapSound = true;
 ```
 
 **Track Progress**
+
 ```csharp
 // Monitor completion
 PuzzleManager.OnPieceConnected += UpdateProgress;
@@ -808,6 +816,7 @@ Suitable for both desktop and mobile projects.
 #### 💡 Usage Examples
 
 **Configure Joystick Mode**
+
 ```csharp
 // Set joystick mode programmatically
 MobileInputManager inputManager = FindObjectOfType<MobileInputManager>();
@@ -815,6 +824,7 @@ inputManager.SetMode(MobileInputManager.JoystickMode.Float);
 ```
 
 **Handle Block Breaking**
+
 ```csharp
 // Block breaking is automatic via touch input
 // Configure break duration and hardness in inspector
@@ -822,6 +832,7 @@ BlockHardnessDatabase.GetHardness(BlockType.Stone); // Returns 1.2f
 ```
 
 **Save and Load**
+
 ```csharp
 // Save current world
 WorldSaveManager saveManager = FindObjectOfType<WorldSaveManager>();
@@ -890,17 +901,97 @@ SceneManager.LoadScene("GameScene");
 
 ---
 
+### 🏝️ Island Survival — Multiplayer FPS Template
+
+**Island Survival — Multiplayer FPS Template** is a complete co-op survival FPS built on **Mirror** — procedurally generated islands, resource gathering, base building, crafting, day/night, drowning and PvP, playable in multiplayer or fully offline on a single machine. Roughly 95 scripts across twelve systems, with every gameplay action server-authoritative.
+
+> ⚠️ **Not the same product as [Island Survival](#-island-survival).** That one is a singleplayer template with zombie AI on the Built-in pipeline. This is a separate, multiplayer-first package for Unity 6 / URP.
+
+> 💡 **One codebase, two modes.** With a session active every system is server-authoritative; with Mirror not running at all the same scripts apply their effects directly. You never maintain two code paths.
+
+#### ✨ Key Features
+
+- 🌐 **Server-authoritative multiplayer** – host, dedicated server and client modes; inventory, crafting, building, harvesting, dropping and pickup are all decided on the server
+- 🧬 **Deterministic world, not replicated world** – the island is regenerated on every peer from one synced seed, so no heightmaps or object lists ever cross the wire
+- 🌲 **Id-based resource sync** – nodes get stable ids from generation order instead of a NetworkIdentity each, scaling to hundreds of trees and rocks for almost nothing
+- ⏱️ **Late-join catch-up** – a player joining an hour into a session rebuilds the island from the seed, then immediately clears exactly what the others already harvested
+- 💾 **Per-player persistence** – saves are keyed by a persistent GUID, so a player who quits and rejoins gets their own position, health, stamina, hotbar and inventory back
+- 🏝️ **Procedural island generation** – terrain, water and coastline from an `IslandSettings` asset, with a live seed preview in the New Game menu
+- 🏗️ **Snap-based building system** – foundations, walls, doorways, floors, ladders, with destructible pieces and a build menu
+- 🎒 **Per-player inventory & crafting** – ScriptableObject items and recipes, 24 inventory slots + 8 hotbar slots
+- 🎁 **Loot sacks** – drop items or die and scatter your inventory; anyone walking over a sack picks it up, with pickup arbitrated server-side
+- 🗺️ **Island map & compass HUD** – full-screen map with grid, zoom, pan and colour-coded markers, plus a PUBG-style compass showing those markers at their real bearing
+- 🎙️ **Text chat & proximity voice** – pure C# IMA ADPCM codec at 16 kHz (~8 KB/s per speaker), server-enforced range, self-tuning jitter buffer, **no native plugins and no third-party licences**
+- 🔌 **Swappable networking backend** – menu, loading screen and pause menu never name a networking type; Steam, Epic, Edgegap and relays are just Mirror `Transport` swaps with zero code changes
+
+#### 🎮 Suitable For
+
+- Co-op and PvP survival games
+- Island, shipwreck and castaway settings
+- Base-building and raiding games
+- Open-world multiplayer exploration prototypes
+- Developers who need a working server-authoritative foundation instead of writing netcode from scratch
+
+#### 📂 Package Contents
+
+- ~95 C# scripts organized by system (Building, Core, Input, Inventory & Crafting, Items & Tools, Menu, Player, Resources & Gathering, Save System, UI Menus, World & Environment), all with XML documentation comments
+- Two fully wired scenes: `MAIN MENU` (create/load/join, settings, key rebinding) and `DEMO` (island, HUD, map, compass, chat, build menu, pause menu)
+- Player prefab with all per-player networked components pre-attached
+- Prefabs: tools, weapons, build pieces, resource props, wall mounts
+- ScriptableObject data: Items, Recipes, BuildPieces, IslandSettings
+- Editor tools: Rebuild Item Database, Fix Build and Networking Issues, Validate Multiplayer Setup
+- 15-page PDF documentation (`documentation.pdf`)
+
+#### 🚀 Quick Start
+
+1. **Import Mirror first** (free on the Asset Store), then this package.
+2. Add `MAIN MENU` and `DEMO` to *File ▸ Build Settings*, with `MAIN MENU` first.
+3. Run `Tools ▸ Island Survival ▸ Rebuild Item Database`.
+4. Run `Tools ▸ Island Survival ▸ Fix Build and Networking Issues` — it registers spawnable prefabs and keeps the sky/fog shader variants from being stripped.
+5. Run `Tools ▸ Island Survival ▸ Validate Multiplayer Setup` and fix anything reported as ERROR.
+6. Press Play, hit **Create Game**, and you are hosting.
+
+#### 🔧 Important Notes & Settings
+
+**Mirror is required and is not included.** Import it before this package, or the scripts will not compile. It is free, and declaring it as a dependency rather than bundling a copy is what prevents duplicate-assembly errors for developers who already have it.
+
+**URP only.** Included materials are authored against URP/Lit. The code runs under Built-in (`PipelineUtils` picks shaders at runtime), but a Built-in project needs to reassign the materials.
+
+**No third-person character animation.** The player is a first-person rig with a viewmodel; there is no rigged body or `Animator`. Swings *are* replicated to every peer, but reading another player's attack from the outside needs a character model you supply. Planned for a future update.
+
+**World generation is synchronous.** The heightmap and every spawned node are built in one frame on the host, so entering a world produces a brief freeze that scales with island size. Lower the resolution/spawn counts, or split the spawner loops across frames.
+
+**Saved stamina is up to two seconds stale.** Stamina is computed by the owning client and is not a SyncVar, so it is reported to the server on a timer. Position, health and inventory are exact.
+
+**Resource saves are tied to spawner settings.** Node ids come from generation order, so changing island resolution or spawn density renumbers them. The save records the seed and node count and skips restoring harvested resources rather than carving holes in the wrong places.
+
+#### 📋 Technical Requirements
+
+- Unity 6 (6000.0) or newer
+- Universal Render Pipeline
+- [Mirror](https://assetstore.unity.com/packages/tools/network/mirror-129321) networking (free) — **required, not included**
+- New Input System (`com.unity.inputsystem`)
+- No assembly definitions — compiles into `Assembly-CSharp`
+- PC / desktop; WebGL works but has no microphone support (voice fails cleanly, text chat keeps working)
+
+#### 🔄 Version History
+
+- **v1.0** — Initial release: server-authoritative gameplay on Mirror, deterministic seeded world, late-join catch-up, per-player save persistence, proximity voice chat, loot sacks
+
+---
+
 ## ⚙️ Technical Specifications
 
 <div align="center">
 
 | Specification | Details |
 |:-------------:|:--------|
-| **Unity Version** | 2022.3 LTS or higher |
-| **Render Pipeline** | Built-in (URP/HDRP notes provided where applicable) |
+| **Unity Version** | 2022.3 LTS or higher (Island Survival — Multiplayer requires Unity 6) |
+| **Render Pipeline** | Built-in for most assets; URP for Island Survival — Multiplayer (URP/HDRP notes provided where applicable) |
 | **.NET Version** | 4.x or higher |
 | **Platforms** | Windows, macOS, Linux, iOS, Android, WebGL |
 | **Code Quality** | Fully commented, documented, production-ready |
+| **Dependencies** | None, except Mirror (free) for Island Survival — Multiplayer |
 
 </div>
 
@@ -909,6 +1000,7 @@ SceneManager.LoadScene("GameScene");
 ## 🚀 General Integration
 
 ### Installation
+
 ```bash
 # 1. Download the asset package
 # 2. Import into Unity via Assets > Import Package
@@ -917,6 +1009,7 @@ SceneManager.LoadScene("GameScene");
 ```
 
 ### Typical Integration Flow
+
 ```
 📦 Import Package → 🎮 Open Demo Scene → 🔧 Adjust Parameters → 🚀 Build Your Game
 ```
@@ -954,7 +1047,7 @@ Battle-tested systems suitable for commercial projects. Not prototypes - these a
 - All assets use namespaces to prevent conflicts
 - Modular components can be added incrementally
 - Compatible with most third-party assets
-- No forced dependencies on external packages
+- No forced dependencies on external packages (Island Survival — Multiplayer requires Mirror, which is free and declared as an Asset Store dependency)
 
 </details>
 
@@ -965,6 +1058,16 @@ Battle-tested systems suitable for commercial projects. Not prototypes - these a
 - Configurable LOD distances and quality settings
 - Thread-safe operations for heavy computations
 - Mobile-optimized alternatives provided
+
+</details>
+
+<details>
+<summary><strong>🌐 Multiplayer</strong></summary>
+
+- Island Survival — Multiplayer is server-authoritative throughout: clients request, the server decides
+- The world is deterministic and seeded, so terrain is never transmitted
+- Connection code sits behind an interface, so Steam, Epic, relays and mobile are Transport swaps rather than rewrites
+- The same scripts run offline with no networking active at all
 
 </details>
 
@@ -991,7 +1094,7 @@ Battle-tested systems suitable for commercial projects. Not prototypes - these a
 | 🐧 **Linux** | ✅ Full Support | Tested on Ubuntu |
 | 📱 **iOS** | ✅ Full Support | Optimized builds available |
 | 🤖 **Android** | ✅ Full Support | Mobile-friendly settings |
-| 🌐 **WebGL** | ✅ Full Support | Some limitations apply |
+| 🌐 **WebGL** | ✅ Full Support | Some limitations apply; no microphone support for voice chat |
 
 </div>
 
