@@ -18,6 +18,29 @@
 
 ---
 
+## 🆕 New: Voxel Game Builder
+
+<div align="center">
+
+![Voxel Game Builder](assets/vgb/beach.jpg)
+
+**Build a complete voxel game in Unity 6 without writing code.** Coming soon to the Unity Asset Store.
+
+**[▶ See it on the website](https://mtstudioassets.github.io/)**
+
+</div>
+
+- **Terrain Graph** - mountains, coasts, rivers and caves from around sixty nodes with live previews
+- **Rules and mob brain graphs** - game logic and mob behaviour as event, condition, action
+- **Voxel Studio** - blocks, items, recipes, biomes and mobs in one window; MagicaVoxel import
+- **Crafting and survival** - inventory, crafting tables, furnaces, chests, tool wear, health, hunger, saves
+- **Weather and sky** - day and night, volumetric clouds with shadows, rain that soaks the ground, storms, snow
+- **Graphics from phones to gaming PCs** - five levels from Low to Very Ultra, far terrain to the horizon
+- **Level editing** - paint the world with the Voxel Brush right in the Scene view
+- **Unity 6 + URP, PC and mobile**, Burst and Jobs, full documented C# source
+
+---
+
 ## 📦 Asset Catalog
 
 | # | Asset | Category |
@@ -1153,6 +1176,6 @@ We're here to help! Don't hesitate to reach out.
 
 **Made with ❤️ by MT STUDIO ASSETS**
 
-*Last Updated: July 2026*
+*Last Updated: October 2026*
 
 </div>
