@@ -26,7 +26,7 @@
 
 **Build a complete voxel game in Unity 6 without writing code.** **Published — available now on the Unity Asset Store.**
 
-**[🛒 Get it on the Unity Asset Store](https://assetstore.unity.com/packages/tools/game-toolkits/voxel-game-builder-416060)** • **[▶ See it on the website](https://tamerlan9058-hub.github.io/mtstudioassets.github.io/)** • **[💬 Join the Discord](https://discord.com/invite/EkUR5gU3)**
+**[🛒 Get it on the Unity Asset Store](https://assetstore.unity.com/packages/tools/game-toolkits/voxel-game-builder-416060)** • **[▶ See it on the website](https://tamerlan9058-hub.github.io/mtstudioassets.github.io/)** • **[💬 Join the Discord](https://discord.gg/g3wsYxAhh4)**
 
 </div>
 
